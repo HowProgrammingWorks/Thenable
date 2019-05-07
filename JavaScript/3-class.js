@@ -20,6 +20,8 @@ class Security {
   }
 }
 
+// Usage
+
 (async () => {
   const person = await Security.getPerson(10);
   console.dir({ person });

@@ -12,6 +12,8 @@ const getNumbers = () => ({
   }
 });
 
+// Usage
+
 (async () => {
   const next = getNumbers();
   for (let i = 0; i < 5; i++) {

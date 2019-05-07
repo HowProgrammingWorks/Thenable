@@ -13,6 +13,8 @@ const getNumbers = () => ({
   }
 });
 
+// Usage
+
 const onSuccess = res => console.dir({ res });
 const onError = err => console.dir({ err: err.message });
 

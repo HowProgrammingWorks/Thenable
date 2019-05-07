@@ -12,6 +12,8 @@ const getNumbers = () => {
   });
 };
 
+// Usage
+
 const getNext = getNumbers();
 for (let i = 0; i < 5; i++) {
   getNext().then(

@@ -12,6 +12,8 @@ const getPerson = id => {
   return thenable;
 };
 
+// Usage
+
 (async () => {
   const person = await getPerson(10);
   console.dir({ person });

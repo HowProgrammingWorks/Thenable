@@ -6,6 +6,8 @@ const thenable = () => ({
   }
 });
 
+// Usage
+
 (async () => {
   const res = await thenable();
   console.dir({ res });
