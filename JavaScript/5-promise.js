@@ -18,7 +18,7 @@ const getNumbers = () => {
     try {
       const res = await data;
       console.dir({ res });
-    } catch(err) {
+    } catch (err) {
       console.dir({ err: err.message });
     }
   }

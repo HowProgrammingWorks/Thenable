@@ -1,6 +1,6 @@
 'use strict';
 
-const thenable = () => ({
+const getNumbers = () => ({
   numbers: [1, 2, 3],
   then(onFulfilled, onRejected) {
     const num = this.numbers.shift();
@@ -13,12 +13,12 @@ const thenable = () => ({
 });
 
 (async () => {
-  const data = thenable();
+  const next = getNumbers();
   for (let i = 0; i < 5; i++) {
     try {
-      const res = await data;
+      const res = await next;
       console.dir({ res });
-    } catch(err) {
+    } catch (err) {
       console.dir({ err: err.message });
     }
   }
