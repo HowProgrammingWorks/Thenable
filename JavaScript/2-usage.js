@@ -2,10 +2,10 @@
 
 const getPerson = id => {
   const thenable = {
-    then(f) {
+    then(onFulfilled) {
       setTimeout(() => {
         const person = { id, name: 'Marcus Aurelius' };
-        f(person);
+        onFulfilled(person);
       }, 1000);
     }
   };

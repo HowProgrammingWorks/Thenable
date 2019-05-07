@@ -1,8 +1,8 @@
 'use strict';
 
 const thenable = () => ({
-  then(f) {
-    f(5);
+  then(onFulfilled) {
+    onFulfilled(5);
   }
 });
 
