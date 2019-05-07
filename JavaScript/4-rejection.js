@@ -19,7 +19,7 @@ const thenable = () => ({
       const res = await data;
       console.dir({ res });
     } catch(err) {
-      console.dir({ err });
+      console.dir({ err: err.message });
     }
   }
 })();
