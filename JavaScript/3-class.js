@@ -4,6 +4,7 @@ class Result {
   then(onFulfilled) {
     this.onFulfilled = onFulfilled;
   }
+
   ready(data) {
     if (this.onFulfilled) this.onFulfilled(data);
   }

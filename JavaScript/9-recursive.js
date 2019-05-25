@@ -6,12 +6,14 @@ class Thenable {
   constructor() {
     this.next = null;
   }
+
   then(onSuccess) {
     this.onSuccess = onSuccess;
     const next = new Thenable();
     this.next = next;
     return next;
   }
+
   resolve(value) {
     const onSuccess = this.onSuccess;
     if (onSuccess) {
