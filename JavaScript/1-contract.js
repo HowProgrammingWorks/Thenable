@@ -1,6 +1,6 @@
 'use strict';
 
-const thenable = () => ({
+const thenableFactory = () => ({
   then(onFulfilled) {
     onFulfilled(5);
   }
@@ -9,6 +9,6 @@ const thenable = () => ({
 // Usage
 
 (async () => {
-  const res = await thenable();
+  const res = await thenableFactory();
   console.dir({ res });
 })();
