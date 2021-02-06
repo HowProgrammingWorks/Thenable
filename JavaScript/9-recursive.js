@@ -18,7 +18,7 @@ class Thenable {
     const onSuccess = this.onSuccess;
     if (onSuccess) {
       const next = onSuccess(value);
-      if (next) {
+      if (next && next.then) {
         next.then(value => {
           this.next.resolve(value);
         });
