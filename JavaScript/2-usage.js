@@ -1,6 +1,6 @@
 'use strict';
 
-const getPerson = id => {
+const getPerson = (id) => {
   const thenable = {
     then(onFulfilled) {
       setTimeout(() => {

@@ -17,7 +17,7 @@ const getNumbers = () => {
 const getNext = getNumbers();
 for (let i = 0; i < 5; i++) {
   getNext().then(
-    res => console.dir({ res }),
-    err => console.dir({ err: err.message })
+    (res) => console.dir({ res }),
+    (err) => console.dir({ err: err.message })
   );
 }

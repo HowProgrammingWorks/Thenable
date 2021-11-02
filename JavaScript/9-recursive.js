@@ -19,7 +19,7 @@ class Thenable {
     if (onSuccess) {
       const next = onSuccess(value);
       if (next) {
-        next.then(value => {
+        next.then((value) => {
           this.next.resolve(value);
         });
       }
@@ -29,7 +29,7 @@ class Thenable {
 
 // Usage
 
-const readFile = filename => {
+const readFile = (filename) => {
   const thenable = new Thenable();
   fs.readFile(filename, 'utf8', (err, data) => {
     if (err) throw err;
@@ -39,15 +39,15 @@ const readFile = filename => {
 };
 
 readFile('1-contract.js')
-  .then(data => {
+  .then((data) => {
     console.dir({ file1: data.length });
     return readFile('2-usage.js');
   })
-  .then(data => {
+  .then((data) => {
     console.dir({ file2: data.length });
     return readFile('3-class.js');
   })
-  .then(data => {
+  .then((data) => {
     console.dir({ file3: data.length });
   })
   .then(() => {
