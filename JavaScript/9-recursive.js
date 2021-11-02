@@ -19,9 +19,13 @@ class Thenable {
     if (onSuccess) {
       const next = onSuccess(value);
       if (next) {
-        next.then((value) => {
-          this.next.resolve(value);
-        });
+        if (next.then) {
+          next.then((value) => {
+            this.next.resolve(value);
+          });
+        } else {
+          this.next.resolve(next);
+        }
       }
     }
   }
@@ -49,6 +53,10 @@ readFile('1-contract.js')
   })
   .then((data) => {
     console.dir({ file3: data.length });
+    return 'I will be printed by callback in the next then';
+  })
+  .then((data) => {
+    console.dir({ text: data });
   })
   .then(() => {
     console.log('Will never printed');
