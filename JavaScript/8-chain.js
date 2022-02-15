@@ -7,7 +7,7 @@ const getNumbers = () => ({
     if (num) {
       onFulfilled(num);
     } else {
-      onRejected(new Error('I heve no numbers for you'));
+      onRejected(new Error('I have no numbers for you'));
     }
     return this; // chain thenable
   }
