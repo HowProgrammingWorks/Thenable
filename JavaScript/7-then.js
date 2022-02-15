@@ -7,7 +7,7 @@ const getNumbers = () => {
     if (num) {
       resolve(num);
     } else {
-      reject(new Error('I heve no numbers for you'));
+      reject(new Error('I have no numbers for you'));
     }
   });
 };
