@@ -21,9 +21,9 @@ class Query {
   }
 
   then(resolve) {
-    const { fields, where, limit, order } = this.options;
+    const { table, fields, where, limit, order } = this.options;
     const cond = Object.entries(where).map((e) => e.join('=')).join(' AND ');
-    const sql = `SELECT ${fields} WHERE ${cond}`;
+    const sql = `SELECT ${fields} FROM ${table} WHERE ${cond}`;
     const opt = `ORDER BY ${order} LIMIT ${limit}`;
     resolve(sql + ' ' + opt);
   }
