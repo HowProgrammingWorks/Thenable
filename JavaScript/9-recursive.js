@@ -3,31 +3,22 @@
 const fs = require('node:fs');
 
 class Thenable {
-  constructor() {
-    this.next = null;
-  }
+  next = null;
 
   then(onSuccess) {
     this.onSuccess = onSuccess;
-    const next = new Thenable();
-    this.next = next;
-    return next;
+    this.next = new Thenable();
+    return this.next;
   }
 
   resolve(value) {
-    const onSuccess = this.onSuccess;
-    if (onSuccess) {
-      const next = onSuccess(value);
-      if (next) {
-        if (next.then) {
-          next.then((value) => {
-            this.next.resolve(value);
-          });
-        } else {
-          this.next.resolve(next);
-        }
-      }
-    }
+    if (!this.onSuccess) return;
+    const next = this.onSuccess(value);
+    if (!next) return;
+    if (!next.then) return void this.next.resolve(next);
+    next.then((value) => {
+      this.next.resolve(value);
+    });
   }
 }
 
@@ -59,5 +50,5 @@ readFile('1-contract.js')
     console.dir({ text: data });
   })
   .then(() => {
-    console.log('Will never printed');
+    console.log('Will be never printed');
   });
