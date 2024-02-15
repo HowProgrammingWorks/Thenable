@@ -1,10 +1,8 @@
 'use strict';
 
-const PAUSE = 1000;
-
 const thenable = {
   then(onFulfilled) {
-    setTimeout(onFulfilled, PAUSE);
+    setTimeout(onFulfilled, 1000);
   }
 };
 
