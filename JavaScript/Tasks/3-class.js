@@ -6,11 +6,11 @@
 const iterate = (items) => {
   let index = 0;
   return {
-    then(fulfill, /*reject*/) {
+    then(fulfill /*reject*/) {
       if (index < items.length) {
         fulfill(items[index++]);
       }
-    }
+    },
   };
 };
 

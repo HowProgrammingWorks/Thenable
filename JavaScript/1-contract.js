@@ -3,7 +3,7 @@
 const thenableFactory = () => ({
   then(onFulfilled) {
     onFulfilled(5);
-  }
+  },
 });
 
 // Usage

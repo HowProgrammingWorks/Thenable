@@ -10,7 +10,7 @@ const getNumbers = () => ({
       onRejected(new Error('I have no numbers for you'));
     }
     return this; // chain thenable
-  }
+  },
 });
 
 // Usage

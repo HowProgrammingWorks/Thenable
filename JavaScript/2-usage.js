@@ -7,7 +7,7 @@ const getPerson = (id) => {
         const person = { id, name: 'Marcus Aurelius' };
         onFulfilled(person);
       }, 1000);
-    }
+    },
   };
   return thenable;
 };

@@ -3,7 +3,7 @@
 const thenable = {
   then(onFulfilled) {
     setTimeout(onFulfilled, 1000);
-  }
+  },
 };
 
 (async () => {

@@ -22,7 +22,9 @@ class Query {
 
   then(resolve) {
     const { table, fields, where, limit, order } = this.options;
-    const cond = Object.entries(where).map((e) => e.join('=')).join(' AND ');
+    const cond = Object.entries(where)
+      .map((e) => e.join('='))
+      .join(' AND ');
     const sql = `SELECT ${fields} FROM ${table} WHERE ${cond}`;
     const opt = `ORDER BY ${order} LIMIT ${limit}`;
     resolve(sql + ' ' + opt);
@@ -31,12 +33,12 @@ class Query {
 
 // Usage
 
-(async () => {
-
+const main = async () => {
   const sql = await new Query('cities')
     .where({ country: 10, type: 1 })
     .order('population')
     .limit(10);
   console.log(sql);
+};
 
-})();
+main();

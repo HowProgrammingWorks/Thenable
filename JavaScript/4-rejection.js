@@ -9,7 +9,7 @@ const getNumbers = () => ({
     } else {
       onRejected(new Error('I have no numbers for you'));
     }
-  }
+  },
 });
 
 // Usage

@@ -2,14 +2,15 @@
 
 const getNumbers = () => {
   const numbers = [1, 2, 3];
-  return () => new Promise((resolve, reject) => {
-    const num = numbers.shift();
-    if (num) {
-      resolve(num);
-    } else {
-      reject(new Error('I have no numbers for you'));
-    }
-  });
+  return () =>
+    new Promise((resolve, reject) => {
+      const num = numbers.shift();
+      if (num) {
+        resolve(num);
+      } else {
+        reject(new Error('I have no numbers for you'));
+      }
+    });
 };
 
 // Usage
