@@ -3,16 +3,21 @@
 // Task: rewrite to `class Iterator` implementing
 // Thenable contract with private fields.
 
-const iterate = (items) => {
-  let index = 0;
-  return {
-    then(fulfill /*reject*/) {
-      if (index < items.length) {
-        fulfill(items[index++]);
+class Iterator {
+  #items;
+  constructor(items){
+    this.#items = items;
+  }
+
+  then(fulfill /*reject*/) {
+      const item = this.#items.shift()
+      if (item) {
+        fulfill(item);
       }
-    },
-  };
-};
+   }
+}
+
+
 
 const electronics = [
   { name: 'Laptop', price: 1500 },
@@ -21,7 +26,7 @@ const electronics = [
 ];
 
 (async () => {
-  const items = iterate(electronics);
+  const items = new Iterator(electronics);
   // Use `new Iterator(electronics)`
   const item1 = await items;
   console.log(item1);
